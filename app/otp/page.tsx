@@ -12,11 +12,11 @@ const Otp: FC = () => {
     <div className="bg-main-dark mx-auto flex items-center flex-col">
       <div className="flex flex-col gap-4 w-screen md:w-[60%] lg:w-[40%] items-center md:border md:border-main-dark md:rounded-xl md:shadow-lg px-8 py-6 md:p-8 md:mt-48  h-screen md:h-[50%] relative">
         {/* back to login */}
-        <Link href="/">
+        <Link href="/forgot-password">
           <div className="flex gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110">
             <BsArrowLeft className="text-main-blue text-sm md:text-lg " />
             <span className="text-main-blue text-xs md:tracking-wide">
-              Back to Login
+              Back
             </span>
           </div>
         </Link>
@@ -48,7 +48,7 @@ const Otp: FC = () => {
             className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base"
           />
           {/* send btn */}
-          <Link href="/otp">
+          <Link href="/new-password">
             <button
               // onClick={() => router.push("/otp")}
               className="bg-main-blue border cursor-pointer text-white hover:bg-transparent md:p-4 p-2 text-center rounded-xl uppercase tracking-widest border-main-blue hover:border-main-blue w-56 md:w-72 lg:w-96 transition duration-500 text-xs md:text-base"

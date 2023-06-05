@@ -3,7 +3,7 @@ import logo from "../public/assets/logo.png";
 import loginCover from "../public/assets/loginCover.jpg";
 import Link from "next/link";
 
-export default function Home() {
+export default function Login() {
   return (
     // Login Page
     <div className="bg-main-dark mx-auto">
