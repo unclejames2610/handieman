@@ -8,7 +8,9 @@ export default function Home() {
     // Login Page
     <div className="bg-main-dark mx-auto">
       <div className="flex items-center lg:justify-evenly ">
+        {/* backdrop */}
         <div className="md:flex flex-col items-center bg-main-blue/80 h-screen hidden w-[55%] lg:w-[60%]">
+          {/* bg image */}
           <Image
             src={loginCover}
             alt="login-cover"
@@ -23,6 +25,7 @@ export default function Home() {
         </div>
         {/* login form */}
         <div className="flex flex-col gap-4 h-screen p-8 md:w-[45%] lg:w-[40%] w-screen items-center md:pt-48">
+          {/* app logo */}
           <Image
             src={logo}
             alt="Logo"
@@ -31,25 +34,31 @@ export default function Home() {
             className="p-0 m-0 h-[270px] w-[300px] object-contain box-border"
           />
           <div className="flex flex-col items-center gap-4 mt-[-150px]">
+            {/* enter mail */}
             <input
               type="email"
               placeholder="Email"
+              required={true}
               className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-sm md:text-base"
             />
+            {/* password */}
             <input
               type="password"
               placeholder="Password"
+              required={true}
               className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-sm md:text-base"
             />
+            {/* sign in btn */}
             <button className="bg-main-blue border cursor-pointer text-white hover:bg-transparent md:p-4 p-2 text-center rounded-xl uppercase tracking-widest border-main-blue hover:border-main-blue w-56 md:w-72 lg:w-96 transition duration-500 text-sm md:text-base">
               Sign In
             </button>
+            {/* forgot password */}
             <Link href="/forgot-password">
-              <div className=" tracking-widest md:tracking-[0.2em] uppercase text-main-blue text-[10px] md:text-xs cursor-pointer">
+              <div className=" tracking-widest md:tracking-[0.2em] uppercase text-main-blue text-[10px] md:text-xs cursor-pointer hover:text-white hover:underline">
                 forgot password?
               </div>
             </Link>
-
+            {/* sign up link */}
             <div className="capitalize text-xs md:text-sm text-white tracking-wider leading-3 cursor-pointer underline hover:text-main-blue">
               no account? sign up here
             </div>
