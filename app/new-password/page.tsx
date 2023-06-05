@@ -5,12 +5,14 @@ import logo from "../../public/assets/logo.png";
 import { BsArrowLeft } from "react-icons/bs";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import Link from "next/link";
-// import { useRouter } from "next/router";
+// import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 
 const NewPassword: FC = () => {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showPassword2, setShowPassword2] = useState<boolean>(false);
   const [passwordError, setPasswordError] = useState<string>("");
   const [passErrorBoolean, setPassErrorBoolean] = useState<boolean>(false);
 
@@ -22,17 +24,30 @@ const NewPassword: FC = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const togglePasswordVisibility = (prevVisibility: boolean) => {
-    setShowPassword(!prevVisibility);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const togglePasswordVisibility2 = () => {
+    setShowPassword2(!showPassword2);
   };
 
   //   const router = useRouter();
 
-  const handleSubmit = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+    // e.preventDefault();
+    // check if passwords are the same
     if (password === confirmPassword) {
+      // check if password is less than
       if (password.length >= 8) {
         // router.push("/");
+        return (
+          <Link href="/">
+            <a className="bg-main-blue border cursor-pointer text-white hover:bg-transparent md:p-4 p-2 text-center rounded-xl uppercase tracking-widest border-main-blue hover:border-main-blue w-56 md:w-72 lg:w-96 transition duration-500 text-xs md:text-base">
+              Save
+            </a>
+          </Link>
+        );
       } else {
         setPassErrorBoolean(true);
         setPasswordError("Password must be longer than 8 characters");
@@ -78,35 +93,59 @@ const NewPassword: FC = () => {
           )}
 
           {/* enter password */}
-          <div className="">
-            <div>
-              {" "}
-              <input
-                type="password"
-                placeholder="Enter Password"
-                minLength={8}
-                onChange={handlePasswordChange}
-                required
-                className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base"
-              />
-            </div>
-
-            {AiOutlineEye}
+          <div className="flex items-center justify-between border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter Password"
+              minLength={8}
+              onChange={handlePasswordChange}
+              required
+              className="bg-transparent focus:outline-none"
+            />
+            <span>
+              {showPassword ? (
+                <AiOutlineEyeInvisible
+                  className="cursor-pointer text-base md:text-lg"
+                  onClick={() => togglePasswordVisibility()}
+                />
+              ) : (
+                <AiOutlineEye
+                  className="cursor-pointer text-base md:text-lg"
+                  onClick={() => togglePasswordVisibility()}
+                />
+              )}
+            </span>
           </div>
 
           {/* re-enter password */}
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            minLength={8}
-            onChange={handleConfirmPasswordChange}
-            required
-            className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base"
-          />
+          <div className="flex items-center justify-between border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base">
+            <input
+              type={showPassword2 ? "text" : "password"}
+              placeholder="Confirm Password"
+              minLength={8}
+              onChange={handleConfirmPasswordChange}
+              required
+              className="bg-transparent focus:outline-none"
+            />
+            <span>
+              {showPassword2 ? (
+                <AiOutlineEyeInvisible
+                  className="cursor-pointer text-base md:text-lg"
+                  onClick={() => togglePasswordVisibility2()}
+                />
+              ) : (
+                <AiOutlineEye
+                  className="cursor-pointer text-base md:text-lg"
+                  onClick={() => togglePasswordVisibility2()}
+                />
+              )}
+            </span>
+          </div>
+
           {/* save btn */}
 
           <button
-            onClick={() => handleSubmit}
+            onClick={handleSubmit}
             className="bg-main-blue border cursor-pointer text-white hover:bg-transparent md:p-4 p-2 text-center rounded-xl uppercase tracking-widest border-main-blue hover:border-main-blue w-56 md:w-72 lg:w-96 transition duration-500 text-xs md:text-base"
           >
             Save
