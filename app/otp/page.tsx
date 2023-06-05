@@ -5,7 +5,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import Link from "next/link";
 // import { useRouter } from "next/router";
 
-const ForgotPassword: FC = () => {
+const Otp: FC = () => {
   // const router = useRouter();
 
   return (
@@ -31,16 +31,19 @@ const ForgotPassword: FC = () => {
         />
         <div className="flex flex-col items-center gap-4 mt-[-90px] md:mt-[-150px]">
           {/* header */}
-          <h1 className="text-xl md:text-3xl font-bold">Forgot Password?</h1>
+          <h1 className="text-xl md:text-3xl font-bold">Enter OTP</h1>
           {/* prompt */}
           <p className="md:text-sm text-xs tracking-wide md:tracking-normal">
-            Enter the email you registered with and a verification pin will be
-            sent shortly.
+            A one-time password was sent to your email. Kindly input it below.
           </p>
-          {/* enter email */}
+          {/* enter otp */}
           <input
-            type="email"
-            placeholder="Enter your email"
+            type="text"
+            maxLength={6}
+            pattern="[0-9]{6}"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            placeholder="Enter OTP"
             required={true}
             className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base"
           />
@@ -59,4 +62,4 @@ const ForgotPassword: FC = () => {
   );
 };
 
-export default ForgotPassword;
+export default Otp;
