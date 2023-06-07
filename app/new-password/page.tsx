@@ -7,6 +7,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import Link from "next/link";
 // import { useRouter } from "next/dist/client/router";
 import { useRouter } from "next/navigation";
+import Button from "@/components/Button";
 
 const NewPassword: FC = () => {
   const [password, setPassword] = useState<string>("");
@@ -139,12 +140,7 @@ const NewPassword: FC = () => {
 
           {/* save btn */}
 
-          <button
-            onClick={handleSubmit}
-            className="bg-main-blue border cursor-pointer text-white hover:bg-transparent md:p-4 p-2 text-center rounded-xl uppercase tracking-widest border-main-blue hover:border-main-blue w-56 md:w-72 lg:w-96 transition duration-500 text-xs md:text-base"
-          >
-            Save
-          </button>
+          <Button text="save" onClick={handleSubmit} />
         </div>
       </div>
     </div>

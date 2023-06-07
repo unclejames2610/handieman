@@ -3,6 +3,7 @@ import Image from "next/image";
 import logo from "../../public/assets/logo.png";
 import { BsArrowLeft } from "react-icons/bs";
 import Link from "next/link";
+import Button from "@/components/Button";
 // import { useRouter } from "next/router";
 
 const Otp: FC = () => {
@@ -49,12 +50,7 @@ const Otp: FC = () => {
           />
           {/* send btn */}
           <Link href="/new-password">
-            <button
-              // onClick={() => router.push("/otp")}
-              className="bg-main-blue border cursor-pointer text-white hover:bg-transparent md:p-4 p-2 text-center rounded-xl uppercase tracking-widest border-main-blue hover:border-main-blue w-56 md:w-72 lg:w-96 transition duration-500 text-xs md:text-base"
-            >
-              Send
-            </button>
+            <Button text="Send" />
           </Link>
         </div>
       </div>
