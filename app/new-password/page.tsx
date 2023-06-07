@@ -6,7 +6,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import Link from "next/link";
 // import { useRouter } from "next/dist/client/router";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const NewPassword: FC = () => {
   const [password, setPassword] = useState<string>("");
@@ -34,6 +34,7 @@ const NewPassword: FC = () => {
 
   //   const router = useRouter();
 
+  const { push } = useRouter();
   const handleSubmit = () => {
     // e.preventDefault();
     // check if passwords are the same
@@ -41,13 +42,7 @@ const NewPassword: FC = () => {
       // check if password is less than
       if (password.length >= 8) {
         // router.push("/");
-        return (
-          <Link href="/">
-            <a className="bg-main-blue border cursor-pointer text-white hover:bg-transparent md:p-4 p-2 text-center rounded-xl uppercase tracking-widest border-main-blue hover:border-main-blue w-56 md:w-72 lg:w-96 transition duration-500 text-xs md:text-base">
-              Save
-            </a>
-          </Link>
-        );
+        push("/");
       } else {
         setPassErrorBoolean(true);
         setPasswordError("Password must be longer than 8 characters");
