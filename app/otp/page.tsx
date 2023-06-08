@@ -4,6 +4,7 @@ import logo from "../../public/assets/logo.png";
 import { BsArrowLeft } from "react-icons/bs";
 import Link from "next/link";
 import Button from "@/components/Button";
+import BackButton from "@/components/BackButton";
 // import { useRouter } from "next/router";
 
 const Otp: FC = () => {
@@ -12,16 +13,8 @@ const Otp: FC = () => {
   return (
     <div className="bg-main-dark mx-auto flex items-center flex-col">
       <div className="flex flex-col gap-4 w-screen md:w-[60%] lg:w-[40%] items-center md:border md:border-main-dark md:rounded-xl md:shadow-lg px-8 py-6 md:p-8 md:mt-48  h-screen md:h-[50%] relative">
-        {/* back to login */}
-        <Link href="/forgot-password">
-          <div className="flex gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110">
-            <BsArrowLeft className="text-main-blue text-sm md:text-lg " />
-            <span className="text-main-blue text-xs md:tracking-wide">
-              Back
-            </span>
-          </div>
-        </Link>
-
+        {/* back to forgot password */}
+        <BackButton link="/forgot-password" />
         {/* logo */}
         <Image
           src={logo}

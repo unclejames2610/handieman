@@ -8,6 +8,7 @@ import Link from "next/link";
 // import { useRouter } from "next/dist/client/router";
 import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
+import BackButton from "@/components/BackButton";
 
 const NewPassword: FC = () => {
   const [password, setPassword] = useState<string>("");
@@ -39,33 +40,31 @@ const NewPassword: FC = () => {
   const handleSubmit = () => {
     // e.preventDefault();
     // check if passwords are the same
-    if (password === confirmPassword) {
-      // check if password is less than
-      if (password.length >= 8) {
-        // router.push("/");
-        push("/");
+    if (password == "" || confirmPassword == "") {
+      setPassErrorBoolean(true);
+      setPasswordError("Please fill in the field");
+    } else {
+      if (password === confirmPassword) {
+        // check if password is less than
+        if (password.length >= 8) {
+          // router.push("/");
+          push("/");
+        } else {
+          setPassErrorBoolean(true);
+          setPasswordError("Password must be longer than 8 characters");
+        }
       } else {
         setPassErrorBoolean(true);
-        setPasswordError("Password must be longer than 8 characters");
+        setPasswordError("Passwords do not match");
       }
-    } else {
-      setPassErrorBoolean(true);
-      setPasswordError("Passwords do not match");
     }
   };
 
   return (
     <div className="bg-main-dark mx-auto flex items-center flex-col">
       <div className="flex flex-col gap-4 w-screen md:w-[60%] lg:w-[40%] items-center md:border md:border-main-dark md:rounded-xl md:shadow-lg px-8 py-6 md:p-8 md:mt-48  h-screen md:h-[50%] relative">
-        {/* back to login */}
-        <Link href="/otp">
-          <div className="flex gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110">
-            <BsArrowLeft className="text-main-blue text-sm md:text-lg " />
-            <span className="text-main-blue text-xs md:tracking-wide">
-              Back
-            </span>
-          </div>
-        </Link>
+        {/* back to otp */}
+        <BackButton link="/otp" />
 
         {/* logo */}
         <Image
