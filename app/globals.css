@@ -22,3 +22,11 @@ body {
   font-family: "Manrope", sans-serif;
   color: white;
 }
+
+.my-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  /* Add your custom styles here */
+}

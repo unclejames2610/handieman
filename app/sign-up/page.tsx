@@ -50,7 +50,9 @@ const SignUp: FC = () => {
             <div className="md:text-4xl lg:text-5xl  text-center font-bold ">
               Sign up as a <span className="text-main-blue">Client</span>
             </div>
-            <Button text="Sign Up" />
+            <Link href="/sign-up-customer">
+              <Button text="Sign Up" />
+            </Link>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function Login() {
     <div className="bg-main-dark mx-auto h-screen">
       <div className="flex items-center lg:justify-evenly">
         {/* backdrop */}
-        <div className="md:flex flex-col items-center bg-main-blue/80 h-screen hidden w-[55%] lg:w-[60%] relative">
+        <div className="md:flex flex-col items-center bg-main-blue/30 h-screen hidden w-[55%] lg:w-[60%] relative">
           {/* bg image */}
           <Image
             src={loginCover}
