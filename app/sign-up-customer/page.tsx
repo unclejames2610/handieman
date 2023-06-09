@@ -35,7 +35,7 @@ const SignUpCustomer = () => {
     <div className="mx-auto bg-main-dark h-screen">
       <div className="flex h-screen">
         {/* left side */}
-        <div className="bg-main-blue/20 w-[55%] h-full relative">
+        <div className="bg-main-blue/20 w-[55%] h-full relative hidden md:block">
           <Image
             src={customerBg}
             alt="client bg"
@@ -43,15 +43,16 @@ const SignUpCustomer = () => {
             height={0}
             className="p-0 m-0 object-cover mix-blend-overlay h-full w-full opacity-30"
           />
+          {/* back btn */}
           <Link href="/sign-up">
-            <div className="flex gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110">
-              <BsArrowLeft className="text-main-blue text-sm md:text-lg hidden md:block " />
+            <div className="gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110 hidden md:flex ">
+              <BsArrowLeft className="text-main-blue text-sm md:text-lg " />
               <span className="text-main-blue text-xs md:tracking-wide hidden md:block">
                 Back
               </span>
             </div>
           </Link>
-          <div className="flex flex-col items-center absolute inset-0 justify-center gap-16">
+          <div className="flex flex-col items-center absolute inset-0 justify-center gap-12">
             <p className="text-center text-4xl font-bold capitalize">
               Sign up As A <span className="text-main-blue">Client</span> Today!
             </p>
@@ -62,23 +63,32 @@ const SignUpCustomer = () => {
           </div>
         </div>
         {/* form side */}
-        <div className="w-[45%] flex flex-col items-center">
+        <div className=" w-screen md:w-[45%] flex flex-col items-center overflow-auto">
+          {/* back btn */}
+          <Link href="/sign-up">
+            <div className="flex gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110 md:hidden">
+              <BsArrowLeft className="text-main-blue text-sm md:text-lg" />
+              <span className="text-main-blue text-xs md:tracking-wide hidden md:block">
+                Back
+              </span>
+            </div>
+          </Link>
           {/* app logo */}
           <Image
             src={logo}
             alt="Logo"
             width={0}
             height={0}
-            className="p-0 m-0 h-[270px] w-[300px] object-contain box-border"
+            className="p-0 m-0 h-[200px] w-[300px] md:h-[270px] md:w-[300px] object-contain box-border"
           />
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 items-center mt-[-130px]"
+            className="flex flex-col gap-4 items-center mt-[-90px] md:mt-[-130px] mb-8 md:mb-0"
           >
             {/* first name */}
             <div className="flex flex-col gap-1">
               <label
-                className="uppercase text-xs text-white "
+                className="uppercase text-[10px] md:text-xs text-white "
                 htmlFor="firstName"
               >
                 First Name
@@ -90,13 +100,13 @@ const SignUpCustomer = () => {
                 value={firstName}
                 required={true}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="my-input border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-sm md:text-base"
+                className="my-input border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base"
               />
             </div>
             {/* last name */}
             <div className="flex flex-col gap-1">
               <label
-                className="uppercase text-xs text-white "
+                className="uppercase text-[10px] md:text-xs text-white "
                 htmlFor="lastName"
               >
                 Last Name
@@ -108,13 +118,13 @@ const SignUpCustomer = () => {
                 value={lastName}
                 required={true}
                 onChange={(e) => setLastName(e.target.value)}
-                className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-sm md:text-base"
+                className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base"
               />
             </div>
             {/* username */}
             <div className="flex flex-col gap-1">
               <label
-                className="uppercase text-xs text-white "
+                className="uppercase text-[10px] md:text-xs text-white "
                 htmlFor="username"
               >
                 Username
@@ -126,12 +136,15 @@ const SignUpCustomer = () => {
                 value={username}
                 required={true}
                 onChange={(e) => setUsername(e.target.value)}
-                className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-sm md:text-base"
+                className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base"
               />
             </div>
             {/* email */}
             <div className="flex flex-col gap-1">
-              <label className="uppercase text-xs text-white " htmlFor="email">
+              <label
+                className="uppercase text-[10px] md:text-xs text-white "
+                htmlFor="email"
+              >
                 Email
               </label>
               <input
@@ -141,13 +154,13 @@ const SignUpCustomer = () => {
                 value={email}
                 required={true}
                 onChange={(e) => setEmail(e.target.value)}
-                className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-sm md:text-base"
+                className="border bg-transparent text-white md:p-4 p-2 rounded-lg border-white w-56 md:w-72 lg:w-96 focus:outline-none text-xs md:text-base"
               />
             </div>
             {/* phone number */}
             <div className="flex flex-col gap-1">
               <label
-                className="uppercase text-xs text-white "
+                className="uppercase text-[10px] md:text-xs text-white "
                 htmlFor="phoneNumber"
               >
                 Phone Number
@@ -171,7 +184,7 @@ const SignUpCustomer = () => {
             {/* password */}
             <div className="flex flex-col gap-1">
               <label
-                className="uppercase text-xs text-white "
+                className="uppercase text-[10px] md:text-xs text-white "
                 htmlFor="password"
               >
                 Password
@@ -190,12 +203,12 @@ const SignUpCustomer = () => {
                 <span>
                   {showPassword ? (
                     <AiOutlineEyeInvisible
-                      className="cursor-pointer text-base md:text-lg"
+                      className="cursor-pointer text-sm md:text-lg"
                       onClick={() => togglePasswordVisibility()}
                     />
                   ) : (
                     <AiOutlineEye
-                      className="cursor-pointer text-base md:text-lg"
+                      className="cursor-pointer text-sm md:text-lg"
                       onClick={() => togglePasswordVisibility()}
                     />
                   )}
@@ -205,7 +218,7 @@ const SignUpCustomer = () => {
             {/* re-enter password */}
             <div className="flex flex-col gap-1">
               <label
-                className="uppercase text-xs text-white "
+                className="uppercase text-[10px] md:text-xs text-white "
                 htmlFor="confirmPassword"
               >
                 Confirm Password
@@ -224,12 +237,12 @@ const SignUpCustomer = () => {
                 <span>
                   {showPassword2 ? (
                     <AiOutlineEyeInvisible
-                      className="cursor-pointer text-base md:text-lg"
+                      className="cursor-pointer text-sm md:text-lg"
                       onClick={() => togglePasswordVisibility2()}
                     />
                   ) : (
                     <AiOutlineEye
-                      className="cursor-pointer text-base md:text-lg"
+                      className="cursor-pointer text-sm md:text-lg"
                       onClick={() => togglePasswordVisibility2()}
                     />
                   )}
