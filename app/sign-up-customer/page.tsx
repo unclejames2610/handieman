@@ -5,6 +5,8 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import Image from "next/image";
 import logo from "@/public/assets/logo.png";
 import customerBg from "../../public/assets/customerBg.jpg";
+import Link from "next/link";
+import { BsArrowLeft } from "react-icons/bs";
 
 const SignUpCustomer = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -30,10 +32,10 @@ const SignUpCustomer = () => {
   };
 
   return (
-    <div className="mx-auto bg-main-dark">
+    <div className="mx-auto bg-main-dark h-screen">
       <div className="flex h-screen">
         {/* left side */}
-        <div className="bg-main-blue/20 w-[55%] relative">
+        <div className="bg-main-blue/20 w-[55%] h-full relative">
           <Image
             src={customerBg}
             alt="client bg"
@@ -41,6 +43,23 @@ const SignUpCustomer = () => {
             height={0}
             className="p-0 m-0 object-cover mix-blend-overlay h-full w-full opacity-30"
           />
+          <Link href="/sign-up">
+            <div className="flex gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110">
+              <BsArrowLeft className="text-main-blue text-sm md:text-lg hidden md:block " />
+              <span className="text-main-blue text-xs md:tracking-wide hidden md:block">
+                Back
+              </span>
+            </div>
+          </Link>
+          <div className="flex flex-col items-center absolute inset-0 justify-center gap-16">
+            <p className="text-center text-4xl font-bold capitalize">
+              Sign up As A <span className="text-main-blue">Client</span> Today!
+            </p>
+            <p className="text-center text-xl font-bold capitalize">
+              Find professional <span className="text-main-blue">artisans</span>{" "}
+              around you.
+            </p>
+          </div>
         </div>
         {/* form side */}
         <div className="w-[45%] flex flex-col items-center">

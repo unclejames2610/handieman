@@ -10,14 +10,14 @@ export default function Login() {
     <div className="bg-main-dark mx-auto h-screen">
       <div className="flex items-center lg:justify-evenly">
         {/* backdrop */}
-        <div className="md:flex flex-col items-center bg-main-blue/30 h-screen hidden w-[55%] lg:w-[60%] relative">
+        <div className="md:flex flex-col items-center bg-main-blue/20 h-screen hidden w-[55%] lg:w-[60%] relative">
           {/* bg image */}
           <Image
             src={loginCover}
             alt="login-cover"
             width={0}
             height={0}
-            className="p-0 m-0 object-cover mix-blend-overlay h-full w-full opacity-40"
+            className="p-0 m-0 object-cover mix-blend-overlay h-full w-full opacity-30"
           />
           <div className="text-white/80  text-5xl lg:text-6xl   text-center font-bold px-4 lg:px-48 tracking-wide md:flex flex-col gap-y-4 lg:gap-y-8 hidden md:justify-center md:items-center md:h-full absolute">
             <p>Join Us!</p>

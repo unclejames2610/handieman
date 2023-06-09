@@ -5,6 +5,7 @@ import customerBg from "../../public/assets/customerBg.jpg";
 import { BsArrowLeft } from "react-icons/bs";
 import Link from "next/link";
 import Button from "@/components/Button";
+import BackButton from "@/components/BackButton";
 
 const SignUp: FC = () => {
   return (
@@ -21,14 +22,7 @@ const SignUp: FC = () => {
             className="p-0 m-0 object-cover mix-blend-overlay h-full w-full opacity-30"
           />
           {/* back to login */}
-          <Link href="/">
-            <div className="flex gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110">
-              <BsArrowLeft className="text-main-blue text-sm md:text-lg " />
-              <span className="text-main-blue text-xs md:tracking-wide hidden md:block">
-                Back
-              </span>
-            </div>
-          </Link>
+          <BackButton link="/" />
           <div className="absolute flex-col gap-y-6 flex items-center justify-center h-full">
             <div className="md:text-4xl lg:text-5xl text-center font-bold ">
               Sign up as a <span className="text-main-blue">Worker</span>
