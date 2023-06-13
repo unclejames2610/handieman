@@ -25,7 +25,7 @@ export default function Login() {
           </div>
         </div>
         {/* login form */}
-        <div className="flex flex-col gap-4 h-screen p-8 md:w-[45%] lg:w-[40%] w-screen items-center md:pt-48">
+        <div className="flex flex-col gap-4 h-screen p-8 md:w-[45%] lg:w-[40%] w-screen items-center  justify-center">
           {/* app logo */}
           <Image
             src={logo}

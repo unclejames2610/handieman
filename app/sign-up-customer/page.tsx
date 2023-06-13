@@ -45,8 +45,8 @@ const SignUpCustomer = () => {
           />
           {/* back btn */}
           <Link href="/sign-up">
-            <div className="gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110 hidden md:flex ">
-              <BsArrowLeft className="text-main-blue text-sm md:text-lg " />
+            <div className="flex gap-1 absolute top-4 left-2 md:top-6 md:left-4 items-center hover:scale-110 z-20">
+              <BsArrowLeft className="text-main-blue text-sm md:text-lg" />
               <span className="text-main-blue text-xs md:tracking-wide hidden md:block">
                 Back
               </span>
@@ -83,7 +83,7 @@ const SignUpCustomer = () => {
           />
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4 items-center mt-[-90px] md:mt-[-130px] mb-8 md:mb-0"
+            className="flex flex-col gap-4 items-center mt-[-90px] md:mt-[-130px] mb-8"
           >
             {/* first name */}
             <div className="flex flex-col gap-1">
